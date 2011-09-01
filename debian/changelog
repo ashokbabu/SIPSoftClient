@@ -1,0 +1,550 @@
+telepathy-sofiasip (0.5.4-0osso10) unstable; urgency=low
+
+  * Find the text channel object from an outgoing message request handle
+  without looking into SIP headers. Fixes: NB#87514 
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed, 20 Aug 2008 18:50:56 +0300
+
+telepathy-sofiasip (0.5.4-0osso9) unstable; urgency=low
+
+  * Added a SIP connection manager parameter "pt-number-blacklist",
+  which is passed as "codec-id-blacklist" property on the
+  StreamingMedia channel. Fixes: NB#74120
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Mon,  9 Jun 2008 11:57:50 +0300
+
+telepathy-sofiasip (0.5.4-0osso8) unstable; urgency=low
+
+  * Cope with a glare condition on re-INVITE. Fixes: NB#85836
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed,  4 Jun 2008 17:52:59 +0300
+
+telepathy-sofiasip (0.5.4-0osso7) unstable; urgency=low
+
+  * Fixed a race condition in updating pending send flags. Fixes: NB#85705
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Tue, 20 May 2008 19:11:52 +0300
+
+telepathy-sofiasip (0.5.4-0osso6) unstable; urgency=low
+
+  * Fixed a regression in handling newly requested streams during an ongoing
+  negotiation. Fixes: NB#85250, NB#85251, NB#85118
+  * Make sure the call channel is always closed after a remote error
+  response is received and signalled as peer member removal.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed, 14 May 2008 15:19:17 +0300
+
+telepathy-sofiasip (0.5.4-0osso5) unstable; urgency=low
+
+  * Revamped behavior regarding Telepathy stream direction and pending send
+  flags, to conform better to the specification and Gabble implementation.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Fri,  2 May 2008 16:58:27 +0300
+
+telepathy-sofiasip (0.5.4-0osso4) unstable; urgency=low
+
+  * 'loose-routing' defaults to false. Fixes: NB#80328
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Tue, 18 Mar 2008 20:40:34 +0200
+
+telepathy-sofiasip (0.5.4-0osso3) unstable; urgency=low
+
+  * Removed premature optimization in the call state transition
+  to 'active'. Fixes: NB#81258
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Mon, 25 Feb 2008 17:49:52 +0200
+
+telepathy-sofiasip (0.5.4-0osso2) unstable; urgency=low
+
+  * Backported the fix for 'keepalive-internal' default from trunk.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed, 20 Feb 2008 17:23:47 +0200
+
+telepathy-sofiasip (0.5.4-0osso1) unstable; urgency=low
+
+  * Treat empty string parameters as unset. Fixes: NB#80548
+  * Added connection parameter 'loose-routing' to allow disabling
+  RFC 3261 compliant SIP routing headers for legacy behavior,
+  as implemented in the 0.4 branch and earlier. Partial fix for NB#80328.
+  * Serialize codec intersections. Fixes: NB#80675
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Fri, 15 Feb 2008 17:58:26 +0200
+
+telepathy-sofiasip (0.5.3-0osso1) unstable; urgency=low
+
+  * More media session fixes and code cleanups. Fixes: NB#79396
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed,  6 Feb 2008 17:02:56 +0200
+
+telepathy-sofiasip (0.5.2-0osso1) unstable; urgency=low
+
+  * Removed an assertion on unexpected session state, as session
+  states in question can in fact occur. Fixes: NB#69855
+  * Further offer-answer fortifications to prevent violations of
+  RFC 3264 due to concurrent locally requested changes.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Thu, 31 Jan 2008 18:17:27 +0200
+
+telepathy-sofiasip (0.5.1-0osso1) unstable; urgency=low
+
+  * Changed behaviour of SOFIASIP_DEBUG and SOFIASIP_PERSIST to match recent
+  Gabble.
+  * Fixed a parameter list corruption bug introduced in 0.5.0.
+  * Session offer-answer fixes for cases when new streams are added
+  in the middle of an ongoing negotiation.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Thu, 10 Jan 2008 13:46:48 +0200
+
+telepathy-sofiasip (0.5.0-0osso1) unstable; urgency=low
+
+  * Opened the new development branch.
+  * Moved the executable to libexecdir.
+  * Added a manpage for telepathy-sofiasip.
+  * Use the initial route set as means to specify the outbound proxy.
+  * Fixes for call channel flags (sf.net bug #1840543).
+  * Added optional support for coverage instrumentation.
+  * Postpone session state handling until local streams are ready.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Thu,  3 Jan 2008 16:17:01 +0200
+
+telepathy-sofiasip (0.4.5-0osso1) unstable; urgency=low
+
+  * Fix another early media sending issue.
+  * This one is for integration -- previous release Fixes: NB#76983
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Mon, 26 Nov 2007 13:01:48 +0200
+
+telepathy-sofiasip (0.4.4-0osso2) unstable; urgency=low
+
+  * Removed the bandwidth modifiers for RTCP (RFC 3556) from SDP,
+  because of alleged iop problems with some Cisco gateways.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Fri, 16 Nov 2007 14:14:38 +0200
+
+telepathy-sofiasip (0.4.4-0osso1) unstable; urgency=low
+
+  * Prevent the Sofia-SIP stack from switching to TCP for large requests
+  if the transport is specified as UDP. The default transport behavior remains
+  as specified in RFC 3261. Fixes: NB#75431
+  * If 'local-ip-address' has been set for the connection, match media
+  stream local transport candidates against it as the preferable
+  address to use.
+  * Validate the status message text received over the wire before sending
+  it to DBus as UTF-8 strings.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Fri,  9 Nov 2007 15:18:29 +0200
+
+telepathy-sofiasip (0.4.3-0osso1) unstable; urgency=low
+
+  * Fixed a crash when the account URI was specified incorrectly.
+  * Make sure to close and destroy all the channels when the connection
+  goes down. Fixes: NB#74301
+  * Resolved reference counting and lifecycle issues between media channel
+  and session objects.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Tue, 30 Oct 2007 18:18:42 +0200
+
+telepathy-sofiasip (0.4.2-0osso1) unstable; urgency=low
+
+  * Resolved some ambiguities and race conditions in media session
+  state machine by adding one more state. Fixes: NB#73309
+  * New connection manager parameters 'local-ip-address' and 'local-port',
+  to nail down the local socket binding in pathological IOP cases.
+  May fix NB#72666
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed, 24 Oct 2007 13:43:54 +0300
+
+telepathy-sofiasip (0.4.1-0osso1) unstable; urgency=low
+
+  * Never destroy the register use handle prematurely, as it makes Sofia-SIP
+  crash. Also removed a race condition between a 200 response from the server
+  and a disconnection operation that might skip the necessary un-REGISTER.
+  Fixes: NB#72489.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Thu, 11 Oct 2007 14:06:47 +0300
+
+telepathy-sofiasip (0.4.0-0osso1) unstable; urgency=low
+
+  * A stable release 0.4.0.
+  * Removed the atavistic session ID code copied from Gabble.
+  Fixes: NB#72642
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed, 10 Oct 2007 18:32:24 +0300
+
+telepathy-sofiasip (0.3.31-0osso1) unstable; urgency=low
+
+  * Map the 'discover-binding' connection manager parameter to NUA outbound
+  option 'natify', to give the user a bigger kludge against broken proxies.
+  * Emit StreamRemoved for the media channel whenever a stream is closed.
+  * Consistently emit Closed whenever the text channel is closed.
+  Fixes: NB#72044
+  * Prevent false positives coming from different requests when detecting
+  auth loops. Fixes: NB#72016
+  * Authenticate BYE requests when challenged. Fixes: NB#71949
+  * Error reporting fixes for text channel.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Fri,  5 Oct 2007 14:43:24 +0300
+
+telepathy-sofiasip (0.3.30-0osso2) unstable; urgency=low
+
+  * Avoid using g_hash_table_remove_all() introduced only in glib 2.12
+  * SIPMediaChannel: map a 404 status code to GroupChangeReason.Offline
+    The reason is, many proxies return this status code for known user
+    names which are currently offline. Fixes: NB#56405
+  * SipMediaSession: if invite was received, properly remove the caller from
+    the members so that MC registers the missed call. Fixes: NB#64973
+  * sip_conn_create_register_handle.c: create a handle even if To: isn't used.
+    Fixes: NB#71055
+
+ -- Senko Rasic <senko.rasic@collabora.co.uk>  Wed, 26 Sep 2007 10:48:38 +0300
+
+telepathy-sofiasip (0.3.30-0osso1) unstable; urgency=low
+
+  * Add transport parameter to the Contact URI when transport is
+  set to TCP or UDP. Fixes: NB#68136.
+  * Introduced the minimum to effective keepalive interval, to prevent
+  accidental abuse of network traffic. Fixes: NB#68157.
+  * Removed the still embryonic HTTP proxy support.
+  * Fall back to the 'auth-user' value, or to the account user name,
+  to authenticate in foreign domains if 'extra-auth-user' is not given.
+  * Take care to treat certain Reason header values in an incoming CANCEL
+  request as an indication that the user has attended the call elsewhere.
+  * Miscellaneous small fixes and code cleanups.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Thu, 20 Sep 2007 15:22:09 +0300
+
+telepathy-sofiasip (0.3.29-0osso1) unstable; urgency=low
+
+  * Don't assert after fmtp parameter parsing if the line contains whitespace.
+  * Use GroupChangeReason.Offline to signal the 480 status received
+  from a call peer. Fixes: NB#56405.
+  * Set streams to sending after re-INVITE completion. Fixes: NB#68567.
+  * Removed a leftover reference to a Sofia STUN header.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Thu,  6 Sep 2007 16:18:16 +0300
+
+telepathy-sofiasip (0.3.28-0osso1) unstable; urgency=low
+
+  * Implemented a two-way mapping between codec parameters in Telepathy
+  and fmtp attributes in SDP.
+  * Fixes to handle an early SDP answer.
+  * Reverted the discover-binding behavior as the change didn't solve the
+  interop problems it was hoped to.
+  * Sofia logs are now made through syslog.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Tue,  4 Sep 2007 17:30:46 +0300
+
+telepathy-sofiasip (0.3.27-0osso1.1) unstable; urgency=low
+
+  * A stronger implementation of discover-binding parameter false case
+  by disabling the "natify" outbound option instead of mere "use-rport".
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Fri,  3 Aug 2007 17:13:42 +0300
+
+telepathy-sofiasip (0.3.27-0osso1) unstable; urgency=low
+
+  * Properly raise the error in case of calling yourself.
+  * Fixed a potential crash in the authentication handler.
+  * Prevent stream handlers from defaulting the sending state to true.
+  * Implemented rollback on failed incoming session offers.
+  * Pruned the advertized list of allowed SIP methods to the ones we really try
+  to support.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Fri,  3 Aug 2007 16:23:00 +0300
+
+telepathy-sofiasip (0.3.26-0osso1) unstable; urgency=low
+
+  * Replaced an over-assertive assertion with a runtime check.
+  Fixes: NB#64302, MB#1692.
+  * Added 'discover-stun' parameter as means to disable STUN altogether.
+  * STUN server name resolution fixed for failure cases.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Thu, 26 Jul 2007 14:05:07 +0300
+
+telepathy-sofiasip (0.3.25-0osso1) unstable; urgency=low
+
+  * More bug fixes and interoperability enhancements in call handling.
+  * Tightened the handle normalization heuristic on what constitutes
+  a phone number.
+  * Add user=phone parameter to the URI when we decide the handle represents
+  a phone number.
+  * Sofia-SIP version requirement bumped to 1.12.5 to reflect the tag usage.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Thu, 12 Jul 2007 17:19:21 +0300
+
+telepathy-sofiasip (0.3.24-0osso1) unstable; urgency=low
+
+  * Fixed the problem with stream rejection. Fixes: NB#62850, NB#62867
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Tue, 10 Jul 2007 18:48:36 +0300
+
+telepathy-sofiasip (0.3.23-0osso1) unstable; urgency=low
+
+  * More bug fixes in SOA. Fixes: NB#62551, NB#62732.
+  * Enabled custom response handling for incoming MESSAGE requests.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Mon,  9 Jul 2007 20:30:56 +0300
+
+telepathy-sofiasip (0.3.22-0osso1) unstable; urgency=low
+
+  * Fixed a paperikassi bug introduced in the previous release
+  that disabled sending for streams in an outgoing call.
+  Fixes: NB#62591, NB#62544
+  * Comprehensively use pending send flags to prevent media from being sent
+  until the call is established.
+  * Fixed CNAME resolution for STUN host name.
+  * Introduced 'auth-user' CM parameter to be able to set authentication user
+  name for registration, if different from the username part of the AOR.
+  * Use the username part of the AOR as the username in the Contact URI
+  for registration, to satisfy some capricious proxies.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Thu,  5 Jul 2007 18:25:36 +0300
+
+telepathy-sofiasip (0.3.21-0osso1) unstable; urgency=low
+
+  * Implemented media modifications requested by the client
+    that require sending re-INVITE requests. Fixes: NB#55389
+  * Fixes in SDP generation.
+  * Bug fixes in SOA processing.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed,  4 Jul 2007 14:06:04 +0300
+
+telepathy-sofiasip (0.3.20-0osso1) unstable; urgency=low
+
+  * Improvements to handle normalization/validation. Fixes: NB#57250
+  * Discover STUN using SRV records of the registration domain.
+  * Guards against calling to self.
+  * Rewritten the media session state machine to support adequate handling of
+    incoming INVITE and re-INVITEs with session offers; disabled the
+    auto-answer behaviour of the NUA stack.
+  * Consistent support for media stream state.
+  * Cleaner shutdown of media streams at call termination.
+  * Attempt to convert bodies of incoming messages from the
+    indicated character set, if it's not UTF-8.
+  * Handle nua_i_cancel by emitting MembersChanged removing the call members
+    with the peer as an actor. Fixes: NB#58253
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Tue, 26 Jun 2007 13:12:00 +0300
+
+telepathy-sofiasip (0.3.19-0osso2) unstable; urgency=low
+
+  * Removed a call to g_hash_table_remove_all() not implemented in the old
+    GLib.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed,  6 Jun 2007 16:24:17 +0300
+
+telepathy-sofiasip (0.3.19-0osso1) unstable; urgency=low
+
+  * First part of a SOA code rewrite:
+  - Prevent unnecessary work on session updates that don't modify the stream.
+  - Carefully order updates of candidates and codecs for a stream, to ensure
+  smooth behavior towards the remote peer.
+  - Proper handling of remote and local candidate IDs, changing as the remote
+  candidate is changed in offers.
+  - Support stream direction changes signaled by the peer.
+  - Include stream direction attributes in the generated SDP.
+  * Better normalization of Telepathy handles, with a heuristic to turn
+  bare usernames and telephone number lookalikes into SIP URIs in the
+  registration domain.
+  * A new embryonal unit test suite making use of python-Twisted.
+  * Dropped tp_caller from build and distribution. Gone is a buildtime
+  dependency on libtelepathy.
+  * Depends on libtelepathy-glib version 0.5.13 to implement Telepathy spec
+  version 0.15.4.
+  * Use the newly added member change reason "permission denied"
+  to signal failed authentication in an outgoing call.
+  * Implemented RemoveMembers and RemoveMembersWithReason on the media
+  channel's Group interface.
+  * Unsupported member change requests for a media channel now assert
+  or return an error.
+  * Promote usage of randomized local ports for the SIP connection, to
+  avoid problems multiple clients may have with dumb NAT boxes.
+  * Signal non-support of RTCP accordingly to RFC 3556.
+  * More memory leak fixes.
+  * More code cleanups.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed,  6 Jun 2007 11:45:00 +0300
+
+telepathy-sofiasip (0.3.18-0osso1) unstable; urgency=low
+
+  * STUN server name resolution, committed by Senko Rasic.
+  * Fixed an assertion when no keepalive interval was specified.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Mon, 21 May 2007 19:05:42 +0300
+
+telepathy-sofiasip (0.3.17-0osso1) unstable; urgency=low
+
+  * Modified the channel list destruction sequence to avoid crashing.
+  Fixes: NB#56389.
+  * Emit MembersChanged with reason _NO_ANSWER when an outgoing call times out.
+  Fixes: NB#55627.
+  * Set the peer as the actor in MembersChanged emitted on the peer's error
+  response.
+  * Reuse TP_CHANNEL_GROUP_CHANGE_REASON_BANNED as the indication of a call
+  rejected due to not having proper auth credentials.
+  * A lot of memory leak fixes.
+  * Code cleanups.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed, 16 May 2007 11:48:55 +0300
+
+telepathy-sofiasip (0.3.16-0osso1) unstable; urgency=low
+
+  * Media session termination reworked. Fixes: NB#54595.
+  * Properly un-REGISTER during a lingering shutdown.
+  * Do add the DTMF interface to the streaming media channel's interface list.
+  * Ensure the contact URI has scheme "sips:" if the proxy connection is SIPS.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Mon,  7 May 2007 18:29:54 +0300
+
+telepathy-sofiasip (0.3.15-0osso2) unstable; urgency=low
+
+  * telepathy-sofiasip depends on telepathy-glib explicitly since now
+
+ -- Dmitry Rozhkov <ext-dmitry.1.rozhkov@nokia.com>  Mon, 23 Apr 2007 14:27:01 +0300
+
+telepathy-sofiasip (0.3.15-0osso1) unstable; urgency=low
+
+  * Updated to telepathy-glib 0.5.9.
+  * Implemented DTMF event signaling as of Telepathy spec 0.15.2.
+  * Close media streams not supported by the peer (still experimental).
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Fri, 13 Apr 2007 21:25:31 +0300
+
+telepathy-sofiasip (0.3.14-0osso1) unstable; urgency=low
+
+  * Allow lingering NUA stack shutdowns while releasing the D-Bus connection
+  object early. Fixes: NB#53178
+  * Memory leak fixes in streaming media channel code.
+  * Bumped telepathy-glib required version to 0.5.6, while doing compatibility
+  changes for 0.5.7.
+  * Code cleanups in media stream handling.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed, 11 Apr 2007 19:59:21 +0300
+
+telepathy-sofiasip (0.3.13-0osso1) unstable; urgency=low
+
+  * Support for multiple media channels in a connection.
+  * Emit the Closed signal when a text channel is closed. Fixes: NB#53622
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Tue,  3 Apr 2007 10:54:19 +0300
+
+telepathy-sofiasip (0.3.12-0osso1) unstable; urgency=low
+
+  * Implemented non-registrar realm authentication using extra credentials.
+  * Propagates connection preferences for STUN server (server host and port
+  are now settable separately) as media stream properties.
+  * Uses new handle repo API from libtelepathy-glib.
+  * Temporary fix for mismatches of m= lines in SDP exchanges.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Tue, 27 Mar 2007 13:48:09 +0300
+
+telepathy-sofiasip (0.3.11-0osso2) unstable; urgency=low
+
+  * Added build dependency on libtelepathy-glib-static-dev.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed,  7 Mar 2007 10:45:44 +0200
+
+telepathy-sofiasip (0.3.11-0osso1) unstable; urgency=low
+
+  * Modified to use common code from telepathy-glib.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Tue,  6 Mar 2007 17:55:14 +0200
+
+telepathy-sofiasip (0.3.10-0osso2) unstable; urgency=low
+
+  * Package with debug symbols added
+
+ -- Dmitry Rozhkov <ext-dmitry.1.rozhkov@nokia.com>  Mon,  5 Mar 2007 13:58:37 +0200
+
+telepathy-sofiasip (0.3.10-0osso1) unstable; urgency=low
+
+  * Implemented "nat-traversal" property on media channels.
+  * StreamStateChanged signal emitted properly.
+  * Minor bug fixes and enhancements.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Thu,  1 Mar 2007 15:35:30 +0200
+
+telepathy-sofiasip (0.3.9-0osso1) unstable; urgency=low
+
+  * Implemented "keepalive-mechanism" connection manager property.
+  * Implemented "discover-binding" connection manager property.
+  * New remote peer removal reasons based on SIP error responses.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed, 14 Feb 2007 16:02:11 +0200
+
+telepathy-sofiasip (0.3.8-0osso1) unstable; urgency=low
+
+  * Signal unsuccessful INVITE responses from the remote peer
+  as remote channel member removal D-Bus signal with the reason being error.
+  * Allow creation of media channels with a zero creator handle.
+  * Fixes to work with new Farsight/SE.
+  * Various code cleanups.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Mon, 29 Jan 2007 13:53:24 +0200
+
+telepathy-sofiasip (0.3.7-0osso1) unstable; urgency=low
+
+  * Componentized SIP proxy URI into individual parameters for host, port
+  and transport.
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Thu, 18 Jan 2007 14:06:40 +0200
+
+telepathy-sofiasip (0.3.6-0osso2) unstable; urgency=low
+
+  * Refactored Sofia mainloop management.
+  * Stack instance destruction fixed.
+  * Updated the .manager file to match the latest UI proposal 
+
+ -- Mikhail Zabaluev <mikhail.zabaluev@nokia.com>  Wed, 17 Jan 2007 11:45:18 +0200
+
+telepathy-sofiasip (0.3.6-0osso1) unstable; urgency=low
+
+  * NOT RELEASED YET
+  * Updated to upstream version 0.3.6.
+
+ -- Kai Vehmanen <kai.vehmanen@nokia.com>  Tue, 19 Dec 2006 17:32:56 +0200
+
+telepathy-sofiasip (0.3.5-0osso1) unstable; urgency=low
+
+  * Updated to latest upstream version 0.3.5.
+
+ -- Kai Vehmanen <kai.vehmanen@nokia.com>  Fri, 15 Dec 2006 12:38:41 +0200
+
+telepathy-sofiasip (0.3.4-0osso1) unstable; urgency=low
+
+  * Updated to latest upstream version 0.3.4.
+
+ -- Kai Vehmanen <kai.vehmanen@nokia.com>  Wed, 13 Dec 2006 18:55:57 +0200
+
+telepathy-sofiasip (0.3.3-0osso1) unstable; urgency=low
+
+  * Updated to latest upstream version 0.3.3.
+
+ -- Kai Vehmanen <kai.vehmanen@nokia.com>  Mon, 04 Dec 2006 20:38:00 +0200
+
+telepathy-sofiasip (0.3.2-0osso1) unstable; urgency=low
+
+  * Package name changed to telepathy-sofiasip.
+  * Updated to latest upstream version 0.3.2.
+  * Added dependency to libtelepathy (used by the test tools).
+
+ -- Kai Vehmanen <kai.vehmanen@nokia.com>  Mon, 09 Oct 2006 14:29:23 +0300
+  
+telepathy-sip (0.3.1-0osso1) unstable; urgency=low
+
+  * Updated to latest upstream version.
+
+ -- Kai Vehmanen <kai.vehmanen@nokia.com>  Thu, 14 Sep 2006 16:55:08 +0300
+
+telepathy-sip (0.1.2-0osso1) unstable unstable; urgency=low
+
+  * Updated tp-sip to contain latest modifications
+
+ -- Martti Mela <martti.mela@nokia.com>  Tue, 8 Aug 2006 14:43:03 +0300
+
+telepathy-sip (0.1.1-0osso1) unstable unstable; urgency=low
+
+  * initial release
+
+ -- Martti Mela <martti.mela@nokia.com>  Thu, 3 Aug 2006 15:29:03 +0300
+

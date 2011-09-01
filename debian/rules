@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/autotools.mk
+
+DEB_DH_INSTALL_SOURCEDIR=debian/tmp
+DEB_DESTDIR=$(CURDIR)/debian/tmp
+DEB_CONFIGURE_LIBEXECDIR=/usr/lib/telepathy
+DEB_CONFIGURE_PREFIX=/usr
+DEB_CONFIGURE_SYSCONFDIR=/etc
+DEB_DH_STRIP_ARGS=--dbg-package=telepathy-sofiasip
+
+DEB_CONFIGURE_EXTRA_FLAGS=--enable-syslog
+
+# Use soft-float and thumb mode if it enabled.
+ifneq (,$(findstring thumb,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -mthumb
+endif
+ifneq (,$(findstring coverage,$(DEB_BUILD_OPTIONS)))
+        DEB_CONFIGURE_EXTRA_FLAGS += --enable-coverage
+endif
+
+makebuilddir/telepathy-sofiasip::
+	autoreconf -v --install

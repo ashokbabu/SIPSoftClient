@@ -1,0 +1,25 @@
+Source: telepathy-sofiasip
+Priority: optional
+Maintainer: Mikhail Zabaluev <mikhail.zabaluev@nokia.com>
+Uploaders: Kai Vehmanen <first.surname@nokia.com>
+Build-Depends: debhelper (>= 4.0.0), cdbs, libdbus-glib-1-dev (>= 0.60-1osso10), libexpat1-dev, libsofia-sip-ua-dev (>= 1.12.7), libsofia-sip-ua-glib-dev (>= 1.12.7), libtelepathy-glib-dev (>= 0.5.13), libssl-dev
+Standards-Version: 3.6.0
+Section: comm
+
+Package: telepathy-sofiasip
+Architecture: any
+Section: comm
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: SIP connection manager for Telepathy
+ Telepathy-sofiasip is a SIP connection manager for Telepathy 
+ framework, implemented using the Sofia-SIP libraries.
+
+Package: telepathy-sofiasip-dbg
+Section: devel
+Architecture: any
+Depends: telepathy-sofiasip (= ${Source-Version})
+Description: SIP connection manager for Telepathy. Debug symbols
+ Telepathy-sofiasip is a SIP connection manager for Telepathy 
+ framework, implemented using the Sofia-SIP libraries.
+ .
+ This package contains debug symbols for telepathy-gabble
